@@ -14,7 +14,7 @@ public class ApiUtils {
     private static final String ID_PLAYER_JSON_PATH = "idplayer";
     private static final String NAME_JSON_PATH = "name";
     private static final String SURNAME_JSON_PATH = "surname";
-    private static final String PLAYER_RATING_JSON_PATH = "rating";
+    private static final String RATING_JSON_PATH = "rating";
     private static final String PLAYERS_RATING_JSON_PATH = "players";
 
     private static Response getResponse(String url) {
@@ -46,11 +46,21 @@ public class ApiUtils {
 
     public static String getPlayerRatingFromJsonById(int playerId) {
         String url = String.format(Constants.API_PLAYER_EXTEND_PATTERN, playerId);
-        return getValueByJsonPath(url, PLAYER_RATING_JSON_PATH);
+        return getValueByJsonPath(url, RATING_JSON_PATH);
     }
 
     public static List<String> getBaseSquadFromJsonById(int teamId) {
+        String url = String.format(Constants.API_TEAM_RECAPS_PATTERN, teamId);
+        return getListByJsonPath(url, PLAYERS_RATING_JSON_PATH);
+    }
+
+    public static String getTeamRatingFromJsonById(int teamId) {
+        String url = String.format(Constants.API_TEAM_EXTEND_PATTERN, teamId);
+        return getValueByJsonPath(url, RATING_JSON_PATH);
+    }
+
+    public static String getTeamNameFromJsonById(int teamId) {
         String url = String.format(Constants.API_TEAM_PATTERN, teamId);
-        return getListByJsonPath(url, PLAYER_RATING_JSON_PATH);
+        return getValueByJsonPath(url, NAME_JSON_PATH).replaceAll(BRACES_REG_EXP, EMPTY);
     }
 }
