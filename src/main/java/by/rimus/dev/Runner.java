@@ -25,7 +25,7 @@ public class Runner {
         int rg = team.getRating() * rt / rb;
         double dl = rg * 1.0 * Parameters.getInstance().getFails() / Parameters.getInstance().getQuestions() / RATIO;
         System.out.println("RG: " + rg);
-        System.out.printf("DL: %.0f", dl);
+        System.out.printf("DL: %.1f", dl);
     }
 
     private static void parseCli(String[] args) {
