@@ -9,20 +9,17 @@ public final class Parameters {
     @Parameter(names = {"--help", "-h"}, help = true, description = "Help")
     private boolean help;
 
-    @Parameter(names = {"-players", "-p"}, description = "Player ids, separated by semicolon", required = true)
+    @Parameter(names = {"-players", "-p"}, description = "Player IDs, separated by semicolon", required = true)
     private String players;
 
-    @Parameter(names = {"--team", "-t"}, description = "Team id", required = true)
-    private int teamId;
-
-    @Parameter(names = {"--rb", "-r"}, description = "Team TRB", required = true)
-    private int rb;
+    @Parameter(names = {"--team", "-t"}, description = "Team ID", required = true)
+    private int idTeam;
 
     @Parameter(names = {"--questions", "-q"}, description = "All questions number", required = true)
     private int questions;
 
-    @Parameter(names = {"--fails", "-f"}, description = "Failed questions number", required = true)
-    private int fails;
+    @Parameter(names = {"--answers", "-a"}, description = "Correct answers number", required = true)
+    private int answers;
 
     private Parameters() {
     }
@@ -42,19 +39,15 @@ public final class Parameters {
         return players.split(";");
     }
 
-    public int getTeamId() {
-        return teamId;
-    }
-
-    public int getRb() {
-        return rb;
+    public int getIdTeam() {
+        return idTeam;
     }
 
     public int getQuestions() {
         return questions;
     }
 
-    public int getFails() {
-        return fails;
+    public int getAnswers() {
+        return answers;
     }
 }
