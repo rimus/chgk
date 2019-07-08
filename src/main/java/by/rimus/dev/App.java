@@ -47,7 +47,7 @@ public class App {
         int questions = Parameters.getInstance().getQuestions();
         int fails = questions - answers;
         double dl = (double) rg * fails / questions / 500;
-        Log.info("DL = " + dl);
+        Log.info(String.format("DL = %.1f", dl));
     }
 
     private static void parseCli(String[] args) {
