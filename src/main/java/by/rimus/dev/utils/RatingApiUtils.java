@@ -14,7 +14,10 @@ public class RatingApiUtils {
 
     public static Response getResponse(String url) {
         Log.info("Getting response from " + url);
-        return RestAssured.given().when().get(url);
+        Response response = RestAssured.given().when().get(url);
+        Log.info("Response with Content-Type \"" + response.getHeaders().getValue("Content-Type") + "\" received");
+        Log.info("Status " + response.getStatusLine());
+        return response;
     }
 
     public static String getValueByJsonPath(Response response, String jsonPath) {
