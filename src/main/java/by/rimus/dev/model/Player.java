@@ -49,7 +49,7 @@ public class Player implements Comparable<Player> {
     }
 
     public void setRatingPlayer(String ratingPlayer) {
-        this.ratingPlayer = Integer.valueOf(ratingPlayer);
+        this.ratingPlayer = Integer.parseInt(ratingPlayer);
     }
 
     public String getFullName() {

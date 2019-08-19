@@ -66,7 +66,7 @@ public class TeamDAOImpl implements ITeamDAO {
     private List<Player> getBaseSquadFromStringPlayersIdsList(List<String> baseSquadPlayersIds) {
         List<Player> baseSquad = new ArrayList<>();
         for (String idPlayer : baseSquadPlayersIds) {
-            baseSquad.add(playerDAO.getPlayerById(Integer.valueOf(idPlayer)));
+            baseSquad.add(playerDAO.getPlayerById(Integer.parseInt(idPlayer)));
         }
         Collections.sort(baseSquad);
         return baseSquad;

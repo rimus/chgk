@@ -62,7 +62,7 @@ public class Team {
     }
 
     public void setRatingTeam(String ratingTeam) {
-        this.ratingTeam = Integer.valueOf(ratingTeam);
+        this.ratingTeam = Integer.parseInt(ratingTeam);
     }
 
     public int getTechRatingTeam() {
@@ -74,7 +74,7 @@ public class Team {
     }
 
     public void setTechRatingTeam(String techRatingTeam) {
-        this.techRatingTeam = Integer.valueOf(techRatingTeam);
+        this.techRatingTeam = Integer.parseInt(techRatingTeam);
     }
 
     public List<Player> getBaseSquad() {

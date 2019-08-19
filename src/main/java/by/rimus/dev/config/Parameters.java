@@ -1,4 +1,4 @@
-package by.rimus.dev;
+package by.rimus.dev.config;
 
 import com.beust.jcommander.Parameter;
 

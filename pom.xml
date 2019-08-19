@@ -11,14 +11,15 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-        <maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
-        <rest-assured.version>4.0.0</rest-assured.version>
-        <jcommander.version>1.72</jcommander.version>
-        <log4j.version>1.2.17</log4j.version>
-        <spring.version>5.1.8.RELEASE</spring.version>
+        <java.ver>1.8</java.ver>
+        <maven.compiler.source>${java.ver}</maven.compiler.source>
+        <maven.compiler.target>${java.ver}</maven.compiler.target>
+        <maven-compiler-plugin.ver>3.8.1</maven-compiler-plugin.ver>
+        <maven-assembly-plugin.ver>3.1.1</maven-assembly-plugin.ver>
+        <rest-assured.ver>4.0.0</rest-assured.ver>
+        <jcommander.ver>1.72</jcommander.ver>
+        <log4j.ver>1.2.17</log4j.ver>
+        <spring.ver>5.1.9.RELEASE</spring.ver>
     </properties>
 
     <build>
@@ -27,12 +28,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
+                <version>${maven-compiler-plugin.ver}</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>${maven-assembly-plugin.version}</version>
+                <version>${maven-assembly-plugin.ver}</version>
                 <configuration>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
@@ -60,22 +61,22 @@
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>${rest-assured.version}</version>
+            <version>${rest-assured.ver}</version>
         </dependency>
         <dependency>
             <groupId>com.beust</groupId>
             <artifactId>jcommander</artifactId>
-            <version>${jcommander.version}</version>
+            <version>${jcommander.ver}</version>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>${log4j.version}</version>
+            <version>${log4j.ver}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
+            <version>${spring.ver}</version>
         </dependency>
     </dependencies>
 

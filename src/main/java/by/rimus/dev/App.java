@@ -1,5 +1,6 @@
 package by.rimus.dev;
 
+import by.rimus.dev.config.Parameters;
 import by.rimus.dev.logger.Log;
 import by.rimus.dev.model.Player;
 import by.rimus.dev.model.Team;
@@ -67,7 +68,7 @@ public class App {
     private List<Player> getFactSquadFromCommandLineArgs(String[] ids) {
         List<Player> factSquad = new ArrayList<>();
         for (String idPlayer : ids) {
-            factSquad.add(playerService.getPlayerById(Integer.valueOf(idPlayer)));
+            factSquad.add(playerService.getPlayerById(Integer.parseInt(idPlayer)));
         }
         Collections.sort(factSquad);
         return factSquad;
