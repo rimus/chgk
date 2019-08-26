@@ -13,24 +13,24 @@ public class RatingApiUtils {
     private static final String EMPTY = "";
 
     public static Response getResponse(String url) {
-        Log.info("Getting response from " + url);
+        Log.debug("Getting response from " + url);
         Response response = RestAssured.given().when().get(url);
-        Log.info("Response with Content-Type \"" + response.getHeaders().getValue("Content-Type") + "\" received");
-        Log.info("Status " + response.getStatusLine());
+        Log.debug("Response with Content-Type \"" + response.getHeaders().getValue("Content-Type") + "\" received");
+        Log.debug("Status " + response.getStatusLine());
         return response;
     }
 
     public static String getValueByJsonPath(Response response, String jsonPath) {
-        Log.info("Getting value from received JSON by path \"" + jsonPath + "\"");
+        Log.debug("Getting value from received JSON by path \"" + jsonPath + "\"");
         String value = JsonPath.from(response.asString()).getString(jsonPath).replaceAll(BRACES_REG_EXP, EMPTY);
-        Log.info("Value \"" + value + "\" received");
+        Log.debug("Value \"" + value + "\" received");
         return value;
     }
 
     public static List<String> getStringListByJsonPath(Response response, String jsonPath) {
-        Log.info("Getting list of values from received JSON by path \"" + jsonPath + "\"");
+        Log.debug("Getting list of values from received JSON by path \"" + jsonPath + "\"");
         List<String> list = JsonPath.from(response.asString()).getList(jsonPath);
-        Log.info("List " + list + " received");
+        Log.debug("List " + list + " received");
         return list;
     }
 }

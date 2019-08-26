@@ -38,6 +38,7 @@ public class App {
         List<Player> baseTopSix = CounterUtils.getTopSixPlayers(team.getBaseSquad());
         List<Player> actualTopSix = CounterUtils.getTopSixPlayers(
                 app.getFactSquadFromCommandLineArgs(Parameters.getInstance().getPlayers()));
+        Log.info("Actual squad: " + getSurnamesFromSquad(actualTopSix));
         int rb = team.getTechRatingTeam();
         Log.info("RB = " + rb);
         int rt = rb * CounterUtils.getSumWithCoeffs(actualTopSix) / CounterUtils.getSumWithCoeffs(baseTopSix);
@@ -56,7 +57,7 @@ public class App {
         try {
             jCommander.parse(args);
         } catch (ParameterException e) {
-            System.err.println("CLI parameters are incorrect! Use --help");
+            Log.error("CLI parameters are incorrect! Use --help");
             System.exit(1);
         }
         if (Parameters.getInstance().isHelp()) {
@@ -72,5 +73,14 @@ public class App {
         }
         Collections.sort(factSquad);
         return factSquad;
+    }
+
+    private static String getSurnamesFromSquad(List<Player> players) {
+        StringBuilder sb = new StringBuilder();
+        for (Player player : players) {
+            sb.append(player.getSurname());
+            sb.append(" ");
+        }
+        return sb.toString();
     }
 }
