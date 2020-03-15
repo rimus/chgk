@@ -6,7 +6,7 @@ import by.rimus.dev.model.Player;
 import by.rimus.dev.model.Team;
 import by.rimus.dev.service.PlayerService;
 import by.rimus.dev.service.TeamService;
-import by.rimus.dev.utils.CounterUtils;
+import by.rimus.dev.utils.Util;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.ParameterException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,14 +35,12 @@ public class App {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(App.class);
         App app = ctx.getBean(App.class);
         Team team = app.teamService.getTeamById(Parameters.getInstance().getIdTeam());
-        List<Player> baseTopSix = CounterUtils.getTopSixPlayers(team.getBaseSquad());
-        List<Player> actualTopSix = CounterUtils.getTopSixPlayers(
+        List<Player> baseTopSix = Util.getTopSixPlayers(team.getBaseSquad());
+        List<Player> actualTopSix = Util.getTopSixPlayers(
                 app.getFactSquadFromCommandLineArgs(Parameters.getInstance().getPlayers()));
-        Log.info("Actual squad: " + getSurnamesFromSquad(actualTopSix));
+        Log.info("Actual squad: " + Util.getSurnamesFromSquad(actualTopSix));
         int rb = team.getTechRatingTeam();
-        Log.info("RB = " + rb);
-        int rt = rb * CounterUtils.getSumWithCoeffs(actualTopSix) / CounterUtils.getSumWithCoeffs(baseTopSix);
-        Log.info("RT = " + rt);
+        int rt = rb * Util.getSumWithCoeffs(actualTopSix) / Util.getSumWithCoeffs(baseTopSix);
         int rg = team.getRatingTeam() * rt / rb;
         Log.info("RG = " + rg);
         int answers = Parameters.getInstance().getAnswers();
@@ -73,14 +71,5 @@ public class App {
         }
         Collections.sort(factSquad);
         return factSquad;
-    }
-
-    private static String getSurnamesFromSquad(List<Player> players) {
-        StringBuilder sb = new StringBuilder();
-        for (Player player : players) {
-            sb.append(player.getSurname());
-            sb.append(" ");
-        }
-        return sb.toString();
     }
 }

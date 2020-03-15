@@ -3,10 +3,20 @@ package by.rimus.dev.utils;
 import by.rimus.dev.model.Player;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-public class CounterUtils {
+public class Util {
+
+    public static String getSurnamesFromSquad(List<Player> players) {
+        StringBuilder sb = new StringBuilder();
+        for (Player player : players) {
+            sb.append(player.getSurname());
+            sb.append(" ");
+        }
+        return sb.toString();
+    }
 
     public static List<Player> getTopSixPlayers(List<Player> players) {
         List<Player> topSixPlayers = new ArrayList<>();
