@@ -19,7 +19,7 @@
         <rest-assured.ver>4.0.0</rest-assured.ver>
         <jcommander.ver>1.72</jcommander.ver>
         <slf4j.ver>1.7.26</slf4j.ver>
-        <spring.ver>5.1.9.RELEASE</spring.ver>
+        <spring.ver>5.2.22.RELEASE</spring.ver>
     </properties>
 
     <build>
